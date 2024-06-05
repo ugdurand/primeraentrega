@@ -34,10 +34,7 @@ class ProductManager {
     }
 
     async addProduct(product) {
-        if (!product.title || !product.description || !product.price || !product.thumbnails || !product.code || !product.stock || !product.category) {
-            console.log('Faltan datos obligatorios');
-            return;
-        }
+    
         if (this.products.some(prod => prod.code === product.code)) {
             console.log('El codigo ya existe');
             return;
@@ -62,11 +59,11 @@ class ProductManager {
 
     getProducts() {
         return this.products;
-
     }
 
     getProductById(id) {
         const product = this.products.find(prod => prod.id === id);
+
         if (!product) {
             console.log('No se encontro el producto');
             return;
@@ -74,40 +71,41 @@ class ProductManager {
         return product;
     }
 
+    async updateProductStock(id, updatedFields) {
+        const products = await this.getProducts();
+        const productIndex = products.findIndex(product => product.id === id);
+
+        if (productIndex === -1) {
+            //No se encontro el producto
+            return;
+        }
+
+        try {
+            const product = products[productIndex];
+            products[productIndex] = { ...product, ...updatedFields };
+            fs.writeFileSync(this.path, JSON.stringify(products, null, "\t"));
+            
+            return products[productIndex];
+        } catch (error) {
+            console.log(error);
+            return;
+        }
+    }
+    
     deleteProductById(id) {
         const productIndex = this.products.findIndex(prod => prod.id === id);
         if (productIndex === -1) {
-            console.log('No se encontro el producto');
-            return;
-        }
-        this.products.splice(productIndex, 1);
-        try {
-            fs.writeFileSync(this.path, JSON.stringify(this.products, null, "\t"));
-            console.log('Producto eliminado');
-        } catch (error) {
-            console.log(error);
-        }
-    }
-
-    updateProductById(id, newProduct) {
-        const productIndex = this.products.findIndex(prod => prod.id === id);
-        if (productIndex === -1) {
-            console.log('No se encontro el producto');
-            return;
-        }
-
-        const oldProduct = this.products[productIndex];
-
-        this.products[productIndex] = {
-            ...oldProduct,
-            ...newProduct
+            //No se encontro el producto
+            return false;
         }
 
         try {
+            this.products.splice(productIndex, 1);
             fs.writeFileSync(this.path, JSON.stringify(this.products, null, "\t"));
-            console.log('Producto actualizado');
+            return true;
         } catch (error) {
             console.log(error);
+            return false;
         }
     }
 
