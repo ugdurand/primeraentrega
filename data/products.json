@@ -1,0 +1,72 @@
+[
+	{
+		"id": 1,
+		"title": "Small Concrete Computer",
+		"description": "Boston's most advanced compression wear technology increases muscle oxygenation, stabilizes active muscles",
+		"code": "Handmade",
+		"status": false,
+		"stock": 500,
+		"price": "210.00",
+		"thumbnails": [
+			"https://carefree-defense.info/",
+			"https://cavernous-mascara.net"
+		],
+		"category": "test "
+	},
+	{
+		"id": 2,
+		"title": "titulo de prueba",
+		"description": "descripcion prueba",
+		"code": "Prueba codigo",
+		"status": "true",
+		"stock": 24,
+		"price": "550.00",
+		"thumbnails": [
+			"https://ruddy-forest.com/",
+			"https://married-view.net/"
+		],
+		"category": 10
+	},
+	{
+		"id": 4,
+		"title": "Refined Frozen Hat",
+		"description": "The slim & simple Maple Gaming Keyboard from Dev Byte comes with a sleek body and 7- Color RGB LED Back-lighting for smart functionality",
+		"code": "Awesome",
+		"status": "true",
+		"stock": 46,
+		"price": "591.00",
+		"thumbnails": [
+			"https://pink-youth.net",
+			"https://unaware-statement.biz"
+		],
+		"category": 2
+	},
+	{
+		"title": "titulo de prueba",
+		"description": "descripcion prueba",
+		"code": "Prueba codigo",
+		"price": "550.00",
+		"status": "true",
+		"stock": 24,
+		"category": 10,
+		"thumbnails": [
+			"https://ruddy-forest.com/",
+			"https://married-view.net/"
+		],
+		"id": 6
+	},
+	{
+		"title": "Producto nuevo",
+		"description": "descripcion nuevo",
+		"code": "Prueba codigo nuevo",
+		"price": "999.00",
+		"status": "true",
+		"stock": 24,
+		"category": 10,
+		"thumbnails": [
+			"https://ruddy-forest.com/",
+			"https://married-view.net/"
+		],
+		"id": 7
+	}
+]
